@@ -1,6 +1,6 @@
 repos:
 -   repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.5.0
+    rev: v5.0.0
     hooks:
       - id: end-of-file-fixer
       - id: trailing-whitespace
@@ -13,18 +13,18 @@ repos:
       - id: detect-private-key
 
 -   repo: https://github.com/kynan/nbstripout
-    rev: 0.6.1
+    rev: 0.8.1
     hooks:
     -   id: nbstripout
 -   repo: https://github.com/mwouts/jupytext
-    rev: v1.16.0
+    rev: v1.16.6
     hooks:
     -   id: jupytext
         args: [--sync, --pipe, black]
         additional_dependencies:
             - black==22.6.0 # Matches hook
 -   repo: https://github.com/psf/black
-    rev: 23.12.0
+    rev: 24.10.0
     hooks:
     -   id: black
         args: [--line-length, "100"]

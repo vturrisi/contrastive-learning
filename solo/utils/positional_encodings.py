@@ -100,9 +100,7 @@ class PositionalEncoding2D(nn.Module):
         sin_inp_y = torch.einsum("i,j->ij", pos_y, self.inv_freq)
         emb_x = get_emb(sin_inp_x).unsqueeze(1)
         emb_y = get_emb(sin_inp_y)
-        emb = torch.zeros((x, y, self.channels * 2), device=tensor.device).type(
-            tensor.type()
-        )
+        emb = torch.zeros((x, y, self.channels * 2), device=tensor.device).type(tensor.type())
         emb[:, :, : self.channels] = emb_x
         emb[:, :, self.channels : 2 * self.channels] = emb_y
 
@@ -165,9 +163,7 @@ class PositionalEncoding3D(nn.Module):
         emb_x = get_emb(sin_inp_x).unsqueeze(1).unsqueeze(1)
         emb_y = get_emb(sin_inp_y).unsqueeze(1)
         emb_z = get_emb(sin_inp_z)
-        emb = torch.zeros((x, y, z, self.channels * 3), device=tensor.device).type(
-            tensor.type()
-        )
+        emb = torch.zeros((x, y, z, self.channels * 3), device=tensor.device).type(tensor.type())
         emb[:, :, :, : self.channels] = emb_x
         emb[:, :, :, self.channels : 2 * self.channels] = emb_y
         emb[:, :, :, 2 * self.channels :] = emb_z
